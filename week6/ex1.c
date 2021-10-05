@@ -39,12 +39,13 @@ void first_come_first_served(int n, int max_time, process_info *process, exec_in
 		for(int i = 0; i < n; ++i) // calculating waiting time
 			if(process[i].arrival_time <= tick && now != i && stats[i].status != 2)
 				stats[i].status = 1, ++(*info)[i].wt;
-		for(int i = 0; i < n; ++i) { // calculating total values
-			(*info)[i].tat = process[i].arrival_time + (*info)[i].wt;
-			atm += (*info)[i].tat;
-			awt += (*info)[i].wt;
-		}
 	}
+	for(int i = 0; i < n; ++i) { // calculating total values
+		(*info)[i].tat = process[i].burst_time + (*info)[i].wt;
+		*atm += (*info)[i].tat;
+		*awt += (*info)[i].wt;
+	}
+
 	*atm /= (float)n;
 	*awt /= (float)n;
 	free(stats);

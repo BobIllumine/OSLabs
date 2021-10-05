@@ -18,7 +18,7 @@ typedef struct {
 	int wt;
 } exec_info;
 
-void shortest_job_first(int n, int max_time, process_info *process, exec_info **info, float *atm, float *awt) {
+void shortest_work_first(int n, int max_time, process_info *process, exec_info **info, float *atm, float *awt) {
 	int now = -1;
 	exec_status *stats = (exec_status*)calloc(n, sizeof *stats);
 	*info = (exec_info*)calloc(n, sizeof(exec_info));
@@ -63,11 +63,11 @@ int main(int argc, char **argv) {
 		printf("Burst time of #%d process: ", i + 1);
 		scanf("%d", &pinfo[i].burst_time);
 	}
-	shortest_job_first(n, 30, pinfo, &results, &atm, &awt);
+	shortest_work_first(n, 30, pinfo, &results, &atm, &awt);
 	printf("P#\tAT\tBT\tCT\tTAT\tWT\n");
 	for(int i = 0; i < n; ++i)
 		printf("P%d\t%d\t%d\t%d\t%d\t%d\n", i + 1, pinfo[i].arrival_time, pinfo[i].burst_time, results[i].ct, results[i].tat, results[i].wt);
 	printf("Average Turnaround Time: %f\n", atm);
 	printf("Average Waiting Time: %f\n", awt);
-	return 0;
+	return 0
 }
