@@ -9,20 +9,19 @@
 
 void* realloc_c(void *ptr, size_t size) {
     void *new_ptr = malloc(size);
-    printf("%zu %zu\n", size, sizeof(ptr));
-    size_t copy_size = (size < sizeof(ptr) ? size : sizeof(ptr));
-    memcpy(new_ptr, ptr, copy_size);
+    if(ptr != NULL)
+        memcpy(new_ptr, ptr, size);
     free(ptr);
     return new_ptr;
 }
 
 int main() {
-    int *arr = (int*) calloc(5, sizeof(int));
+    float *arr = (float*) calloc(5, sizeof(float));
     for(int i = 0; i < 5; ++i)
-        arr[i] = i, printf("%d ", arr[i]);
+        arr[i] = i * 0.01, printf("%f ", arr[i]);
     printf("\n");
-    arr = (int*) realloc_c(arr, 10 * sizeof(int));
+    arr = (float *) realloc_c(arr, 5 * sizeof(float ));
     for(int i = 0; i < 10; ++i)
-        printf("%d ", arr[i]);
+        printf("%f ", arr[i]);
     return 0;
 }
