@@ -1,0 +1,3 @@
+Virtual and physical addresses are independent of each other.
+Virtual addresses refer to the virtual store that is viewed by the proccess, while physical addresses refer to the real hardware address in physical memory
+Virtual addresses are bounded by virtual space, so in theory they can surpass max physical capacity

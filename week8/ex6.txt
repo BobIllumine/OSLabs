@@ -1,0 +1,3 @@
+Machine with 16-bit virtual addresses has 2^16 overall addresses.
+8KB pages contain 2^3 * 2^10 bits, so each single-level linear page table will need
+2^16/2^13 = 2^3 = 8 entries.
