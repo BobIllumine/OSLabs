@@ -16,12 +16,12 @@ void* realloc_c(void *ptr, size_t size) {
 }
 
 int main() {
-    float *arr = (float*) calloc(5, sizeof(float));
+    int *arr = (int*) calloc(5, sizeof(int));
     for(int i = 0; i < 5; ++i)
-        arr[i] = i * 0.01, printf("%f ", arr[i]);
+        arr[i] = i + 1, printf("%d ", arr[i]);
     printf("\n");
-    arr = (float *) realloc_c(arr, 5 * sizeof(float ));
+    realloc_c(arr, 0);
     for(int i = 0; i < 10; ++i)
-        printf("%f ", arr[i]);
+        printf("%d ", arr[i]);
     return 0;
 }

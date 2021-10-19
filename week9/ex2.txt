@@ -1,0 +1,17 @@
+High H/M ratio:
+Queries: 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5 5 5 5 5
+Number of entries: 2
+Hits: 37
+Misses: 5
+Hit/miss ratio: 7.400000
+
+Low H/M ratio:
+Queries: 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+Number of entries: 2
+Hits: 3
+Misses: 17
+Hit/miss ratio: 0.176471
+
+The aging algorithm is based on temporal locality - it means that pages used in the last instructions will be most likely referenced again.
+In high ratio sequence numbers are occurring in the short interval, the algorithm stores the most recent elements. This leads to high hit/miss ratio.
+In low ratio sequence numbers are different or repeating in a long interval (greater than the number of pages), algorithm has to swap a lot. This leads to low hit/miss ratio.
